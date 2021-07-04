@@ -1,0 +1,6 @@
+<div class="input-group mb-3 mt-5">
+  <input #todo (keydown.enter)="addTodo(todo.value)" type="text" class="form-control"
+         placeholder="...todo" aria-label="Recipient's username"
+         aria-describedby="button-addon2">
+  <button (click)="addTodo(todo.value)" class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
+</div>

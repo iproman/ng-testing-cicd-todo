@@ -1,0 +1,14 @@
+<table class="table table-dark table-striped" *ngIf="todos">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">First</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of todos">
+    <th scope="row">{{t.id}}</th>
+    <td>{{t.name}}</td>
+  </tr>
+  </tbody>
+</table>

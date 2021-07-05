@@ -15,16 +15,15 @@ export class FormComponent {
   addTodo(value: string): void {
     if (value) {
       const newObj = {
-        id: this.#getNumbers(uuidv4()),
+        id: this.getNumber(uuidv4()),
         name: value
       }
 
       this.sendTodo.next(newObj);
     }
-
   }
 
-  #getNumbers(str: string) {
+  getNumber(str: string) {
     return Number(str.replace(/[a-zA-Z]|-/g, '').slice(0, 5));
   }
 }

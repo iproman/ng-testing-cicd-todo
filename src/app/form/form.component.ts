@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Todo } from '../Todo';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -8,12 +8,9 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./form.component.scss'],
 
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
 
   @Output() sendTodo = new EventEmitter<Todo>();
-
-  ngOnInit(): void {
-  }
 
   addTodo(value: string): void {
     if (value) {

@@ -5,7 +5,7 @@ import { Todo } from '../Todo';
 import { AppComponent } from '../app.component';
 
 describe('ListComponent', () => {
-  let component: ListComponent;
+  let listComponent: ListComponent;
   let appComponent: AppComponent;
 
   let fixture: ComponentFixture<ListComponent>;
@@ -62,7 +62,7 @@ describe('ListComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ListComponent);
-    component = fixture.componentInstance;
+    listComponent = fixture.componentInstance;
     fixture.detectChanges();
 
     fixtureAppComponent = TestBed.createComponent(AppComponent);
@@ -71,32 +71,27 @@ describe('ListComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(listComponent).toBeTruthy();
   });
 
   it('@Input test todos', done => {
 
-    expect(component.todos.length).toEqual(0);
+    expect(listComponent.todos.length).toEqual(0);
 
-    component.todos = fixtureTest.tds;
-    expect(component.todos).toEqual(fixtureTest.tds2);
+    listComponent.todos = fixtureTest.tds;
+    expect(listComponent.todos).toEqual(fixtureTest.tds2);
     done();
   });
 
-  xit('"table" testing', done => {
+  it('"table" testing', done => {
     // Set all todos
-    component.todos = fixtureTest.tds;
+    listComponent.todos = fixtureTest.tds;
     fixture.detectChanges();
 
     // Check first value in table
     const fixNative = fixture.nativeElement;
     const mark = fixNative.querySelector('table tbody tr td:last-child').textContent;
     expect(mark).toEqual(fixtureTest.tds[0].name);
-
-    // Todo: Check @Input
-    appComponent.ngOnInit();
-    appComponent.addTodo(fixtureTest.todo);
-    fixture.detectChanges();
     done();
   });
 
